@@ -13,7 +13,7 @@ int lifeGap=20;
 //soldier
 float soldierX=0;
 float soldierY=160;
-float soldierSpeed=5;
+float soldierSpeed=4;
 
 //robot
 float robotX;
