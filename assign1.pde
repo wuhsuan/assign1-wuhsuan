@@ -29,8 +29,9 @@ float lacerSpeed=2;
 PImage bg, soil;
 PImage groundhogImg, soldierImg, robotImg, lifeImg;
 
-void setup() {
-	size(640,480,P2D);
+void setup() 
+{
+  size(640,480,P2D);
 
  //image
   bg= loadImage("img/bg.jpg");
@@ -50,7 +51,8 @@ void setup() {
  
 }
 
-void draw() {
+void draw() 
+{
   
   background(bg);
  
@@ -94,7 +96,7 @@ void draw() {
   //drawlacer
   stroke(255,0,0);
   strokeWeight(lacerWidth);
-  line(lacerX-b,robotY+37,lacerX-b-20,robotY+37);
+  line(lacerX-b,robotY+37,lacerX-b-15,robotY+37);
   
   //lacer movement
   a += lacerSpeed;
