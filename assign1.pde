@@ -82,7 +82,7 @@ void draw()
   image(robotImg,robotX,robotY);
   
   //soldier
-  image(soldierImg,soldierX,soldierY,80,80);
+  image(soldierImg,soldierX-80,soldierY,80,80);
   //soldier movement
   soldierX += soldierSpeed;
   soldierX %= 720; 
