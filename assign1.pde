@@ -1,4 +1,5 @@
 
+
 int Pixel=80;
 
 //grass
@@ -21,8 +22,9 @@ float robotY;
 
 //lacer
 float lacerX;
-float a,b;
+float lacerY;
 float lacerWidth=10;
+float lacerLength=0;
 float lacerSpeed=2;
 
 //PImage
@@ -31,7 +33,7 @@ PImage groundhogImg, soldierImg, robotImg, lifeImg;
 
 void setup() 
 {
-  size(640,480,P2D);
+	size(640,480,P2D);
 
  //image
   bg= loadImage("img/bg.jpg");
@@ -48,6 +50,7 @@ void setup()
  soldierY= Pixel*2+80*floor(random(4));
  //lacer x
  lacerX=robotX+25;
+ lacerY=robotY+37;
  
 }
 
@@ -56,7 +59,7 @@ void draw()
   
   background(bg);
  
-  imageMode(CORNER);   //set
+  imageMode(CORNER);   
   
   //soil
   image(soil,0,Pixel*2);
@@ -74,7 +77,7 @@ void draw()
   image(lifeImg,lifeX+140,lifeY,lifeSize,lifeSize);
   
   //goundHog
-  imageMode(CENTER);  //set
+  imageMode(CENTER);  
   image(groundhogImg,Pixel*4,120);
  
   //robot
@@ -96,10 +99,15 @@ void draw()
   //drawlacer
   stroke(255,0,0);
   strokeWeight(lacerWidth);
-  line(lacerX-b,robotY+37,lacerX-b-15,robotY+37);
+  line(lacerX,lacerY,lacerX+lacerLength,lacerY);
   
   //lacer movement
-  a += lacerSpeed;
-  b =a % 160;
+  lacerLength=min(lacerLength+2,40);
+  lacerX-=2;
+  
+  if(lacerX<=robotX-160-25){
+    lacerX=robotX+25;
+    lacerLength=0;
+  }
   
 }
